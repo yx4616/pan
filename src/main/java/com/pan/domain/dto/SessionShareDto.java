@@ -1,42 +1,29 @@
 package com.pan.domain.dto;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+
+@Data
 public class SessionShareDto {
-    private String shareId;
     private String shareUserId;
-    private Date expireTime;
+
+    @ApiModelProperty(value = "分享ID")
+    @TableId(value = "share_id")
+    private String shareId;
+
+    @ApiModelProperty(value = "用户ID")
+    @TableField(value = "user_id")
+    private String userId;
+
+    @ApiModelProperty(value = "失效时间")
+    @TableField(value = "expire_time")
+    private LocalDateTime expireTime;
+
+    @ApiModelProperty(value = "文件ID")
+    @TableField(value = "file_id")
     private String fileId;
-
-    public String getShareId() {
-        return shareId;
-    }
-
-    public void setShareId(String shareId) {
-        this.shareId = shareId;
-    }
-
-    public String getShareUserId() {
-        return shareUserId;
-    }
-
-    public void setShareUserId(String shareUserId) {
-        this.shareUserId = shareUserId;
-    }
-
-    public Date getExpireTime() {
-        return expireTime;
-    }
-
-    public void setExpireTime(Date expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public String getFileId() {
-        return fileId;
-    }
-
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
 }

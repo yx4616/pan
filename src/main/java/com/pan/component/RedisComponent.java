@@ -12,10 +12,14 @@ public class RedisComponent {
     @Resource
     private RedisUtils redisUtils;
 
+
     /**
-     * 保存已使用的空间
+     * 保存用户空间使用
      *
-     * @param userId
+     * @param userSpaceDto 用户空间dto
+     * @param userId       用户id
+     * @author yx4616
+     * @date 2024/03/07
      */
     public void saveUserSpaceUse(String userId, UserSpaceDto userSpaceDto) {
         redisUtils.setex(Constants.REDIS_KEY_USER_SPACE_USE + userId, userSpaceDto, Constants.REDIS_KEY_EXPIRES_DAY);

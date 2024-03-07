@@ -1,5 +1,6 @@
 package com.pan.service;
 
+import com.pan.domain.dto.SessionWebUserDto;
 import com.pan.domain.po.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface UserInfoService extends IService<UserInfo> {
 
+    SessionWebUserDto login(String email, String password);
 }
